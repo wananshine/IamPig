@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#ff0000",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "navigationStyle": "custom"
+}
