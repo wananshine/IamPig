@@ -1,0 +1,111 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+
+<!--
+  index: int
+  msg: string
+  time: string
+-->
+
+<view class='main'>
+
+  <!--banner  -->
+  <swiper class='wxbanner' duration='1000' indicator-dots='true' autoplay='true' interval='3000' circular='true' bindchange="swiperchange">
+      <block wx:for="{{bannerList.data.bannerArr}}" wx:for-index="idx" wx:for-item="itemurl">
+        <swiper-item class="swiper_{{idx}}" bindtap="tapBanner" data-bannerId="{{idx}}">
+          <!-- <image src="{{itemname.txt}}" class="slide-image" width="355" height="150"/> -->
+          <image class='slide-image' src='{{itemurl.picUrl}}' />
+        </swiper-item>
+      </block>
+  </swiper>
+
+
+
+  <view>
+    <view>
+      <text>{{timetxt}}：</text>
+      <text>{{oneday}}</text>
+    </view>
+  </view>
+
+  <!--电影列表  -->
+  <view class='movie-list'>
+      <!-- <view class='movie-cell'>
+          <view class='movie-a'>
+              <view class='movie-img'><image src=''></image></view>
+              <view class='movie-info'>
+                  <view class='movie-txt movie-name'>
+                    <text>动物世界</text>
+                    <text class='movie-con'>
+                        <text class='movie-eye'>3D</text>
+                        <text class='movie-imax'>IMAX</text>
+                    </text>
+                  </view>
+                  <view class='movie-txt movie-fenshu'>观众3评分</view>
+                  <view class='movie-txt movie-daoyan'>导演：韩延</view>
+                  <view class='movie-txt movie-daoyan'>主演：李易峰 迈克尔·道格拉斯</view>
+              </view>
+              <view class='btn-wrap'>
+                <button class='movie-buy'>购票</button>
+              </view>
+          </view>
+      </view> -->
+
+      <view class='movie-cell' wx:for="{{movieList.data}}" wx:for-index="index" wx:for-item="cell" bindtap="toDetail" data-movieId="{{cell.filmInfoVO.movieId}}">
+          <view class='movie-a'>
+              <view class='movie-img' style='background-image:"{{cell.filmInfoVO.jdPicAddr}}"'>
+                <!-- <image class='img' src='{{cell.filmInfoVO.jdPicAddr}}' /> -->
+              </view>
+              <view class='movie-info'>
+                  <view class='movie-txt movie-name'>
+                    <text class='movie-title'>{{cell.filmInfoVO.movieName}}</text>
+                    <text class='movie-con'>
+                        <text class='movie-eye'>3D</text>
+                        <text class='movie-imax'>IMAX</text>
+                    </text>
+                  </view>
+                  <view class='movie-txt movie-fenshu'>
+                    观众评分 
+                    <text class='movie-grade'>{{cell.filmInfoVO.grade}}</text>
+                  </view>
+                  <view class='movie-txt movie-daoyan'>导演：{{cell.filmInfoVO.director}}</view>
+                  <view class='movie-txt movie-daoyan'>主演：{{cell.filmInfoVO.actors}}</view>
+              </view>
+              <view class='btn-wrap'>
+                <button class='movie-buy' wx:>购票</button>
+                <!-- <button class='movie-buy'></button> -->
+              </view>
+          </view>
+      </view>
+
+  </view>
+ 
+</view>
+
+
+<view>
+      <image src='//img.alicdn.com/bao/uploaded/i4/454291526/TB1gvqFwcj_B1NjSZFHXXaDWpXa_!!0-item_pic.jpg' bindtap='shareImg'></image>
+      <view>
+        <button id='open' bindtap='showShareMenu'>开启分享</button>
+        <button id='close' bindtap='hideShareMenu'>关闭分享</button>
+      </view>
+      <button type="primary" open-type="share" data-name="pageShare" id="share">点击分享</button>
+</view>
+
+<view>
+    <view bindtap='clickCode'>点我扫一扫</view>
+    <view>{{show}}</view>
+</view>
+
+

@@ -1,0 +1,17 @@
+<view>
+  <view>
+    <view class='cinema-list'>
+      <!-- <view wx:for="{{cine}}">
+        
+      </view> -->
+    </view>
+  </view>
+</view>
+
+<view>
+  {{motto}}
+</view>
+
+<view>
+  
+</view>
