@@ -52,7 +52,10 @@ Page({
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     oneday: '',
     timetxt: '开始',
-    show: ""
+    show: "",
+    categories: [],
+    activeCategoryId: 0,
+    curPage: 1
   },
   //事件处理函数
   bindViewTap: function() {
@@ -62,6 +65,7 @@ Page({
   },
 
   onLoad: function () {
+    const _this = this;
     const date = new Date('2018-07-07 10:18:00').getTime();
     const dar = new Date().getTime()
     const dateend = new Date('2018-06-05 10:20:00').getTime();
@@ -72,7 +76,7 @@ Page({
     }else{
       console.log(3)
     }
-    const _this = this;
+    
     const timer = setInterval(function(){
         const nowdate = new Date().getTime()
         if (date > nowdate){
@@ -143,6 +147,28 @@ Page({
         }
       })
     }
+
+
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/category/all',
+      success: function (res) {
+        var categories = [{ id: 0, name: "全部" }];
+        console.log("333", res, app)
+        if (res.data.code == 0) {
+          for (var i = 0; i < res.data.data.length; i++) {
+            categories.push(res.data.data[i]);
+          }
+        }
+        _this.setData({
+          categories: categories,
+          activeCategoryId: 0,
+          curPage: 1
+        });
+        console.log("categories:",_this.data.categories)
+        // that.getGoodsList(0);
+      }
+    })
+
   },
 
   onReady: function(){
@@ -192,6 +218,14 @@ Page({
           console.log(12)
        }
    })
+  },
+
+  swiperchange(e){
+    // console.log(e.detail.current)
+  },
+
+  tapBanner(e){
+    console.log(e.currentTarget.dataset.bannerid)
   },
 
   getUserInfo: function(e) {

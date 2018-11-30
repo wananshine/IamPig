@@ -21,9 +21,9 @@
 <view class='main'>
 
   <!--banner  -->
-  <swiper class='wxbanner' indicator-dots='true' autoplay='true' interval='3000' circular='true'>
+  <swiper class='wxbanner' duration='1000' indicator-dots='true' autoplay='true' interval='3000' circular='true' bindchange="swiperchange">
       <block wx:for="{{bannerList.data.bannerArr}}" wx:for-index="idx" wx:for-item="itemurl">
-        <swiper-item class="swiper_{{idx}}">
+        <swiper-item class="swiper_{{idx}}" bindtap="tapBanner" data-bannerId="{{idx}}">
           <!-- <image src="{{itemname.txt}}" class="slide-image" width="355" height="150"/> -->
           <image class='slide-image' src='{{itemurl.picUrl}}' />
         </swiper-item>
