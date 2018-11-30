@@ -1,4 +1,92 @@
 <!--index.wxml-->
+
+<view class='scroll_box'>
+  <view><text class='scroll_title'>可选洗衣机</text></view>
+  <view>
+    <scroll-view scroll-x style="height: 84rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="green" scroll-top="{{scrollTop}}">
+      <!-- wx:for="{{bannerList.data.bannerArr}}" wx:for-index="idx" wx:for-item="itemurl" -->
+      <radio-group bindchange="radioChange">
+        <block wx:for="{{washingList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+          <view id="{{'scroll_'+item.id}}" class="scroll-view-item bc_red"  wx:if="{{item.selected}}">{{item.value}}</view>
+          <view id="{{'scroll_'+item.id}}" class="scroll-view-item bc_blue" wx:else bindchange="radioChange">
+              <radio class="radio" value="{{item.name}}" checked="">{{item.value}}</radio>
+          </view>
+        </block>
+      </radio-group>
+    </scroll-view>
+  </view>
+  <view>
+    <text class='scroll_free'>空闲</text>
+    <text class='scroll_work'>使用中</text>
+  </view>
+</view>
+
+
+<view class='scroll_box'>
+  <view><text class='scroll_title'>可选洗衣机</text></view>
+  <view>
+    <scroll-view scroll-x style="height: 84rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="green" scroll-top="{{scrollTop}}">
+      <!-- wx:for="{{bannerList.data.bannerArr}}" wx:for-index="idx" wx:for-item="itemurl" -->
+        <block wx:for="{{washingList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+          <view id="{{'scroll_'+item.id}}" class="scroll-view-item bc_red"  wx:if="{{item.selected}}">{{item.value}}</view>
+          <view id="{{'scroll_'+item.id}}" class="scroll-view-item bc_blue" wx:else bindtap='radioChange'>{{item.value}}</view>
+        </block>
+    </scroll-view>
+  </view>
+  <view>
+    <text class='scroll_free'>空闲</text>
+    <text class='scroll_work'>使用中</text>
+  </view>
+</view>
+
+<view class='server_box'>
+  <view><text class='scroll_title'>免费服务</text></view>
+  <view class='server_flex'>
+      <view class='server_free server_01'>
+        <text class='sv_name'>活氧杀菌</text>
+        <text class='sv_des'>抑制细菌</text>
+        <text class='sv_hint'>褪色衣物填选</text>
+      </view>
+      <view class='server_free server_01'>
+        <text class='sv_name'>洗前自洁</text>
+        <text class='sv_des'>2分钟的滚筒自清洁</text>
+      </view>
+  </view>
+</view>
+
+<view class='server_box'>
+  <view><text class='scroll_title'>模式选择</text></view>
+  <scroll-view scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="green" scroll-top="{{scrollTop}}">
+      <!-- wx:for="{{bannerList.data.bannerArr}}" wx:for-index="idx" wx:for-item="itemurl" -->
+        <block>
+          <view class="scroll-view-modal" >1</view>
+          <view class="scroll-view-modal" >1</view>
+          <view class="scroll-view-modal" >1</view>
+          <view class="scroll-view-modal" >1</view>
+        </block>
+    </scroll-view>
+</view>
+
+
+
+
+
+<view>
+  <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+
+
+
+
 <!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

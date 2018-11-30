@@ -1,3 +1,6 @@
+@import "item-template/item-template.wxss";
+
+
 /**index.wxss**/
 .userinfo {
   display: flex;

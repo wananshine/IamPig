@@ -19,3 +19,129 @@
 .usermotto {
   margin-top: 200px;
 }
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.scroll_box{
+width: 100%;
+overflow: hidden;
+padding: 20rpx 10rpx;
+background: #fff;
+white-space: nowrap;
+background-color: #f5f5f5;
+}
+.scroll_title{
+  font-size: 32rpx;
+  display: block;
+  margin-bottom: 20rpx;
+}
+.scroll-view-item{
+  position: relative;
+  display: inline-block;
+  width: 84rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  margin-right: 24rpx;
+  background-color: #fff;
+}
+.bc_blue::before,
+.bc_red::before{
+  content: "";
+  position: absolute; top: 0rpx; right: 0rpx;
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  background-color: skyblue;
+  border-top-right-radius: 6rpx;
+}
+/* .bc_blue::after{
+  content: "";
+  position: absolute; top: 0rpx; right: 0rpx;
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  background-color: skyblue;
+  border-top-right-radius: 6rpx;
+} */
+.bc_red::before{
+  background-color: #ff0000;
+}
+.scroll_free,
+.scroll_work{
+  position: relative;
+  font-size: 28rpx;
+  color: gray;
+  display: inline-block;
+  padding: 0rpx 36rpx 0px 16rpx;
+}
+.scroll_free::before,
+.scroll_work::before{
+  content: "";
+  position: absolute; top: 39%; left: 0rpx;
+  display: block;
+  width: 10rpx;
+  height: 10rpx;
+  /* border-radius: 6rpx; */
+  background-color: skyblue;
+}
+.scroll_work::before{
+  background-color: #ff0000;
+}
+
+
+
+
+.server_box{
+  width: 100%;
+  overflow: hidden;
+  padding: 20rpx 10rpx;
+  background: #fff;
+  white-space: nowrap;
+  background-color: #f5f5f5;
+}
+
+.server_flex{
+  display: flex;
+}
+.server_free{
+  width: 300rpx;
+  padding: 20rpx 0rpx;
+  background-color: white;
+  margin-right: 20rpx;
+  border-radius: 6rpx;
+  box-shadow: 1rpx 1rpx 20rpx #eee;
+}
+.server_free text{
+  display: block;
+  text-align: center;
+}
+.sv_name{
+  font-size: 36rpx;
+  color: #000;
+}
+.sv_des{
+  font-size: 28rpx;
+  color: #666;
+}
+.sv_hint{
+  font-size: 24rpx;
+  color: #ff0000;
+}
+
+
+.scroll-view-modal{
+  position: relative;
+  display: inline-block;
+  width: 250rpx;
+  height: 400rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  margin-right: 24rpx;
+  background-color: #fff;
+}
+

@@ -169,6 +169,40 @@ Page({
       }
     })
 
+    //本地存储
+    try{
+      wx.setStorage({
+        key: 'key',
+        data: 'val',
+      });
+      wx.setStorage({
+        key: 'kkk',
+        data: 'hahaa',
+      })
+    }catch(e){
+
+    };
+
+    //获取本地存储
+    try {
+      var value = wx.getStorageSync('key')
+      if (value) {
+        console.log(value)
+        // Do something with return value
+      }
+    } catch (e) {
+      // Do something when catch error
+    };
+
+    //清除本地存储
+    try {
+      wx.clearStorageSync()
+    } catch (e) {
+      // Do something when catch error
+    }
+
+
+
   },
 
   onReady: function(){

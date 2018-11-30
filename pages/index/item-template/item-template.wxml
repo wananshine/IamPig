@@ -1,0 +1,27 @@
+<!--pages/index/item-template/item-template.wxml-->
+<template name="itemTemplate">
+  <view class='movie-a'>
+              <view class='movie-img' style='background-image:"{{filmInfoVO.jdPicAddr}}"'>
+                <!-- <image class='img' src='{{filmInfoVO.jdPicAddr}}' /> -->
+              </view>
+              <view class='movie-info'>
+                  <view class='movie-txt movie-name'>
+                    <text class='movie-title'>{{filmInfoVO.movieName}}</text>
+                    <text class='movie-con'>
+                        <text class='movie-eye'>3D</text>
+                        <text class='movie-imax'>IMAX</text>
+                    </text>
+                  </view>
+                  <view class='movie-txt movie-fenshu'>
+                    观众评分 
+                    <text class='movie-grade'>{{filmInfoVO.grade}}</text>
+                  </view>
+                  <view class='movie-txt movie-daoyan'>导演：{{filmInfoVO.director}}</view>
+                  <view class='movie-txt movie-daoyan'>主演：{{filmInfoVO.actors}}</view>
+              </view>
+              <view class='btn-wrap'>
+                <button class='movie-buy' wx:>购票</button>
+                <!-- <button class='movie-buy'></button> -->
+              </view>
+    </view>
+</template>

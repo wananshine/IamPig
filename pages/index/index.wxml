@@ -1,3 +1,4 @@
+<import src="item-template/item-template.wxml" />
 <!--index.wxml-->
 <!-- <view class="container">
   <view class="userinfo">
@@ -63,9 +64,9 @@
       </view> -->
 
       <view class='movie-cell' wx:for="{{movieList.data}}" wx:for-index="index" wx:for-item="cell" bindtap="toDetail" data-movieId="{{cell.filmInfoVO.movieId}}">
-          <view class='movie-a'>
+          <template is="itemTemplate" data="{{...cell}}"/>
+          <!-- <view class='movie-a'>
               <view class='movie-img' style='background-image:"{{cell.filmInfoVO.jdPicAddr}}"'>
-                <!-- <image class='img' src='{{cell.filmInfoVO.jdPicAddr}}' /> -->
               </view>
               <view class='movie-info'>
                   <view class='movie-txt movie-name'>
@@ -84,9 +85,8 @@
               </view>
               <view class='btn-wrap'>
                 <button class='movie-buy' wx:>购票</button>
-                <!-- <button class='movie-buy'></button> -->
               </view>
-          </view>
+          </view> -->
       </view>
 
   </view>
