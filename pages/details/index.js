@@ -17,6 +17,9 @@ Page({
   },
   requestData: function(){
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: 'http://m.maoyan.com/cinemas.json', //仅为示例，并非真实的接口地址
       data: {
@@ -36,7 +39,9 @@ Page({
         // console.log("movies:",that.data.movies)
       },
       fail: function (res) { },
-      complete: function (res) { },
+      complete: function (res) {
+        wx.hideLoading();
+      },
     })
   },
   

@@ -44,6 +44,20 @@ Page({
       { name: 'JPN', value: '日本' },
       { name: 'ENG', value: '英国' },
       { name: 'FRA', value: '法国' },
+    ],
+
+    modalVal: 'one',
+    modalList: [
+      { name: "标准洗", time: "45分钟", price: "￥5.00", checked: true, value: "norm"},
+      { name: "大件", time: "55分钟", price: "￥5.00", checked: false, value: "big" },
+      { name: "快速洗", time: "25分钟", price: "￥5.00", checked: false, value: "fast" }
+    ],
+    number: 20,
+
+    optional: [
+      { name: "洗衣液", note: "10ml约3件衣服", volume: "10", checked: true, price: "5.00" },
+      { name: "柔顺液", note: "10ml约3件衣服", volume: "10", checked: false, price: "5.00" },
+      { name: "烘干", note: "推荐60分钟", volume: "10", checked: false, price: "5.00" }
     ]
   },
   //事件处理函数
@@ -52,7 +66,9 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (option) {
+    console.log("option",option)
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -155,5 +171,107 @@ Page({
   radioChange: function(e){
     console.log(e)
     console.log('radio发生change事件，携带value值为：', e.detail.value)
-  }
+  },
+
+  radioChangeModal: function(e){
+    console.log(e)
+    console.log(e.currentTarget.dataset.valueid)
+    console.log('radioChangeModal发生change事件，携带value值为：', e.detail.value)
+  },
+  radioSelected: function(e){
+    console.log(e)
+    console.log(e.currentTarget.dataset.valid)
+    console.log('radioSelected发生change事件，携带value值为：', e.currentTarget.dataset.radioid)
+  },
+
+  radioChangeModal2: function (e) {
+    console.log(e)
+    console.log(e.currentTarget.dataset.valueid)
+    console.log('radioChangeModal发生change事件，携带value值为：', e.detail.value)
+  },
+  radioSelected2: function (e) {
+    console.log(e)
+    console.log(e.currentTarget.dataset.index)
+    console.log('radioSelected发生change事件，携带value值为：', e.currentTarget.dataset.radioid)
+    var modalList = this.data.modalList;
+    console.log(modalList)
+    for (var v in modalList){
+      console.log(v)
+      if (v == e.currentTarget.dataset.index){
+        modalList[v].checked = true
+      }else{
+        modalList[v].checked = false
+      }
+    }
+    this.setData({
+      modalList: modalList
+    })
+  },
+
+  //洗衣液减少
+  minusCustomer: function(e){
+    const minus = Number(e.currentTarget.dataset.minus) - 10;
+    const price = (minus * 5 / 10).toFixed(2);
+    const optional = this.data.optional;
+    console.log(e, minus, price)
+    for (let v in optional) {
+      if (v == e.currentTarget.dataset.index) {
+        if (Number(e.currentTarget.dataset.minus) <= 10){
+          optional[v].volume = 10;
+          optional[v].price = '5.00';
+        } else {
+          optional[v].volume = minus;
+          optional[v].price = price;
+        } 
+      }
+    }
+    this.setData({
+      optional: optional
+    }) 
+  },
+
+  //洗衣液添加
+  plusCustomer: function(e){
+    const plus = Number(e.currentTarget.dataset.plus) + 10;
+    const price = (plus * 5 / 10).toFixed(2);
+    const optional = this.data.optional;
+    console.log(e, plus, price)
+    for (let v in optional){
+      if (v == e.currentTarget.dataset.index){
+        optional[v].volume = plus;
+        optional[v].price = price;
+      }
+    }
+    this.setData({
+      optional: optional
+    })
+  },
+
+  collentTap: function(e){
+    wx.showToast({
+      title: '存储成功',
+      icon: 'success',
+      duration: 2000
+    });
+    wx.showModal({
+      title: '提示',
+      content: '确定要xxx吗？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    const newCollect =  wx.getStorageInfoSync('newsCollect');
+  },
+
+  onShareAppMessage: function(){
+    return{
+      title: "分享图片",
+      path: "./pages"
+    }
+  },
+
 })

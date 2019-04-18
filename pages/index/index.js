@@ -76,6 +76,9 @@ Page({
     }else{
       console.log(3)
     }
+
+    //豆瓣https://api.douban.com/v2/movie/in_theaters
+    this.getDoubanMovie();
     
     const timer = setInterval(function(){
         const nowdate = new Date().getTime()
@@ -207,6 +210,25 @@ Page({
 
   onReady: function(){
     
+  },
+
+  //豆瓣电影接口
+  getDoubanMovie: function(e){
+    //https://api.douban.com/v2/movie/in_theaters
+    wx.request({
+      url: 'https://api.douban.com/v2/movie/in_theaters',
+      data: {},
+      header: {
+        'content-type': 'application/xml' // 默认值
+      },
+      method: "GET",
+      // dataType: "json",
+      success: function(res){
+        console.log("豆瓣电影数据",res.data)
+      },
+      fail: function(res){},
+      complete: function(res){}
+    })
   },
 
   getTime: function (date){

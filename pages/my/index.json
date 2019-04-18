@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "模式选择",
-  "disableScroll": true,
+  "disableScroll": false,
   "enablePullDownRefresh": false
 }

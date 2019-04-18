@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/my/index",
     "pages/index/index",
+    "pages/my/index",
+    
     "pages/index/item-template/item-template",
     "pages/pusher/index",
     "pages/player/index",
@@ -24,31 +25,31 @@
     "list": [{
       "pagePath": "pages/index/index",
       "text": "热映",
-      "color": "#aaaaaa",
-      "selectedColor": "#d00"
+      "color": "green",
+      "selectedColor": "red"
     },
     {
       "pagePath": "pages/cinema/index",
       "text": "影院",
-      "color": "#aaaaaa",
-      "selectedColor": "#d00"
+      "color": "green",
+      "selectedColor": "red"
     },
     {
       "pagePath": "pages/my/index",
       "text": "我的",
-      "color": "#aaaaaa",
-      "selectedColor": "#d00"
+      "color": "green",
+      "selectedColor": "red"
     },
     {
       "pagePath": "pages/player/index",
       "text": "推流",
-      "color": "#aaaaaa",
-      "selectedColor": "#d00"
+      "color": "green",
+      "selectedColor": "red"
     },{
       "pagePath": "pages/pusher/index",
       "text": "直播",
-      "color": "#aaaaaa",
-      "selectedColor": "#d00"
+      "color": "green",
+      "selectedColor": "red"
     }]
   }
 }

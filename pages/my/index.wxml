@@ -39,6 +39,7 @@
   </view>
 </view>
 
+<!-- 免费服务 -->
 <view class='server_box'>
   <view><text class='scroll_title'>免费服务</text></view>
   <view class='server_flex'>
@@ -54,23 +55,93 @@
   </view>
 </view>
 
+<!-- 模式选择 -->
 <view class='server_box'>
   <view><text class='scroll_title'>模式选择</text></view>
-  <scroll-view scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="green" scroll-top="{{scrollTop}}">
+  <radio-group class="radio-group" bindchange="radioChangeModal">
+ <scroll-view scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="green" scroll-top="{{scrollTop}}">
       <!-- wx:for="{{bannerList.data.bannerArr}}" wx:for-index="idx" wx:for-item="itemurl" -->
         <block>
-          <view class="scroll-view-modal" >1</view>
-          <view class="scroll-view-modal" >1</view>
-          <view class="scroll-view-modal" >1</view>
-          <view class="scroll-view-modal" >1</view>
+          <label catchtap="radioSelected" for="one" class="radio scroll-view-modal {{modalVal=='one'? 'modalActive': ''}}" data-valid="one" data-radioid="one">
+            <radio class="radio-control" value="one" id="one"  checked="true"/>1
+          </label>
+          <label catchtap="radioSelected" for="two" class="radio scroll-view-modal {{modalVal=='two'? 'modalActive': ''}}" data-valid='two' data-radioid="two">
+            <radio class="radio-control" value="two" id="two" checked=""/>2
+          </label>
+          <label class="radio scroll-view-modal {{modalVal=='thr'? 'modalActive': ''}}">
+            <radio class="radio-control" value="thr" data-id="thr" checked=""/>3
+          </label>
+          <label class="radio scroll-view-modal {{modalVal=='four'? 'modalActive': ''}}">
+            <radio class="radio-control" value="four" data-id="four" checked=""/>4
+          </label>
         </block>
     </scroll-view>
+</radio-group>
 </view>
 
+<!-- 模式选择2 -->
+<view class='server_box'>
+  <view><text class='scroll_title'>模式选择</text></view>
+  <!-- bindchange="radioChangeModal2" -->
+  <radio-group class="radio-group" >
+    <scroll-view scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="green" scroll-top="{{scrollTop}}">
+        <block wx:for="{{modalList}}" wx:for-index="idx" wx:for-item="modal" wx:key="idx">
+          <label catchtap="radioSelected2" for="mr_{{idx}}" class="radio scroll-view-modal {{modal.checked? 'modalActive': ''}}" data-index="{{idx}}" data-radioid="{{modal.value}}">
+            <radio class="radio-control" value="{{modal.value}}" id="mr_{{idx}}"  checked="{{modal.checked}}"/>
+            <text class='modal-name'>{{modal.name}}</text>
+            <text class='modal-time'>{{modal.time}}</text>
+            <text class='modal.price'>{{modal.price}}</text>
+          </label>
+        </block>
+    </scroll-view>
+</radio-group>
+</view>
 
+<!-- 自选服务 -->
+<view class="optional">
+  <view>
+      <block wx:for="{{optional}}" wx:for-index="index" wx:for-item="opt" wx:key="index">
+          <view class="opt-cell">
+            <text class="opt-name">{{opt.name}}</text>
+            <text class="opt-note">{{opt.note}}</text>
+            <view class="opt-edit">
+              <text class="opt-minus" catchtap="minusCustomer" data-index="{{index}}" data-minus="{{opt.volume}}">-</text>
+              <label><input disabled value="{{opt.volume}}"  maxlength="10" placeholder="" />ml</label>
+              <text class="opt-plus" catchtap="plusCustomer" data-index="{{index}}" data-plus="{{opt.volume}}">+</text>
+            </view>
+            <text class="opt-price">￥{{opt.price}}</text>
+          </view>
+      </block>
+  </view>
+</view>
 
+<view class="addr_box">
+  <view><text class='scroll_title'>附近地址</text></view>
+  <view class="addr-list">
+    <view class="addr-el">
+      <text class="addr-lg">富士康男生宿舍L4</text>
+      <text class="addr-xs">深圳龙华区大方的说法是否水电费水电费水电费是</text>
+    </view>
+    <view class="addr-el">
+      <text class="addr-lg">富士康男生宿舍L4</text>
+      <text class="addr-xs">深圳龙华区大方的说法是否水电费水电费水电费是</text>
+    </view>
+    <view class="addr-el">
+      <text class="addr-lg">富士康男生宿舍L4</text>
+      <text class="addr-xs">深圳龙华区大方的说法是否水电费水电费水电费是</text>
+    </view>
+    <view class="addr-el">
+      <text class="addr-lg">富士康男生宿舍L4</text>
+      <text class="addr-xs">深圳龙华区大方的说法是否水电费水电费水电费是</text>
+    </view>
+  </view>
+</view>
 
+<view>
+  <image src='../../assets/images/idx_01.jpg'></image>
+</view>
 
+<!-- banner -->
 <view>
   <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -102,3 +173,6 @@
 
 <view>{{ msg }}</view>
 <button bindtap="clickMe">点击我</button>
+
+
+<button bindtap="collentTap">数据存储</button>

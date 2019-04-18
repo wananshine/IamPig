@@ -33,11 +33,7 @@ background: #fff;
 white-space: nowrap;
 background-color: #f5f5f5;
 }
-.scroll_title{
-  font-size: 32rpx;
-  display: block;
-  margin-bottom: 20rpx;
-}
+
 .scroll-view-item{
   position: relative;
   display: inline-block;
@@ -56,7 +52,7 @@ background-color: #f5f5f5;
   display: block;
   width: 12rpx;
   height: 12rpx;
-  background-color: skyblue;
+  background-color: #2c7ffa;
   border-top-right-radius: 6rpx;
 }
 /* .bc_blue::after{
@@ -65,7 +61,7 @@ background-color: #f5f5f5;
   display: block;
   width: 12rpx;
   height: 12rpx;
-  background-color: skyblue;
+  background-color: #2c7ffa;
   border-top-right-radius: 6rpx;
 } */
 .bc_red::before{
@@ -87,7 +83,7 @@ background-color: #f5f5f5;
   width: 10rpx;
   height: 10rpx;
   /* border-radius: 6rpx; */
-  background-color: skyblue;
+  background-color: #2c7ffa;
 }
 .scroll_work::before{
   background-color: #ff0000;
@@ -134,14 +130,167 @@ background-color: #f5f5f5;
 }
 
 
-.scroll-view-modal{
+.server_box .scroll-view-modal{
   position: relative;
+  overflow: hidden;
   display: inline-block;
   width: 250rpx;
-  height: 400rpx;
+  /* height: 400rpx; */
   text-align: center;
   border-radius: 6rpx;
   margin-right: 24rpx;
   background-color: #fff;
+  padding: 10rpx 12rpx;
+  box-sizing: border-box;
+}
+.server_box .modal-name{
+  font-size: 36rpx;
+  display: block;
+  color: #000;
+}
+.server_box .modal-time{
+  font-size: 28rpx;
+  display: block;
+  color: #999;
+}
+.server_box .modal.price{
+  font-size: 24rpx;
+  display: block;
+  color: #fb7203;
 }
 
+.server_box .radio-control{
+  /* opacity: 0; */
+  position: absolute;
+  top: -3rpx;
+  right: -8rpx;
+}
+/*  重写 radio 样式  */
+/* 未选中的 背景样式 */
+.server_box radio .wx-radio-input{
+   border-radius: 0%;/* 圆角 */
+   border: none;
+   width: 40rpx;
+   height: 40rpx;
+   background-color: rgba(44,127,250,0.5);
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+.server_box radio .wx-radio-input.wx-radio-input-checked{
+   border-radius: 0rpx;
+   background: #2c7ffa !important;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+.server_box radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+/*  重写 checkbox 样式  */
+/* 未选中的 背景样式 */
+.server_box checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+.server_box checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background: red;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+.server_box checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+
+.server_box .modalActive{
+  /* background-color: yellow; */
+}
+
+.opt-cell{
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+}
+.opt-cell .opt-name,
+.opt-cell .opt-note,
+.opt-cell .opt-edit,
+.opt-cell .opt-price{
+  /* display: -webkit-box; */
+  flex: 1;
+}
+.opt-name{
+  font-size: 32rpx;
+  color: #000;
+}
+.opt-note{
+  font-size: 24rpx;
+  color: #666;
+}
+.opt-price{
+  font-size: 32rpx;
+  color: #fb7203;
+}
+.opt-edit{
+  display: inline-block;
+}
+.opt-minus{
+  /* background-color: #2c7ffa; */
+}
+.opt-plus{
+  height: 6rpx;
+  /* background-color: #2c7ffa; */
+}
+.opt-edit text{
+  vertical-align: middle;
+}
+.opt-edit label{
+  font-size: 26rpx;
+  width: 64rpx;
+  display: inline-block;
+}
+.opt-edit label input{
+  width: 32rpx;
+  font-size: 28rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+.addr_box{
+  background-color: #f5f5f5;
+}
+.addr_box .addr-list{
+  background-color: #fff;
+}
+.addr_box .addr-el{
+  padding: 10rpx;
+}
+.addr_box .addr-el text{
+  display: block;
+}
+.addr_box .addr-el .addr-lg{
+  font-size: 30rpx;
+}
+.addr_box .addr-el .addr-xs{
+  font-size: 24rpx;
+  color: #999;
+}

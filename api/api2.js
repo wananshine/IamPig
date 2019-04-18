@@ -1,4 +1,5 @@
-// 作者：https://nextstack.xyz
+// 作者：p
+
 
 var TOKEN = '';
 
