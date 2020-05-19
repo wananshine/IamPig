@@ -53,7 +53,6 @@ Page({
       { name: "快速洗", time: "25分钟", price: "￥5.00", checked: false, value: "fast" }
     ],
     number: 20,
-
     optional: [
       { name: "洗衣液", note: "10ml约3件衣服", volume: "10", checked: true, price: "5.00" },
       { name: "柔顺液", note: "10ml约3件衣服", volume: "10", checked: false, price: "5.00" },
@@ -112,11 +111,6 @@ Page({
         console.log("----------one",res)
       }
     })
-
-
-    
-
-    
   },
   getUserInfo: function(e) {
     console.log(e)

@@ -1,19 +1,17 @@
+
 {
 	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "1.9.94",
 	"appid": "wx94231d99db8db5ef",
-	"projectname": "IamPig",
+	"projectname": "EBike",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

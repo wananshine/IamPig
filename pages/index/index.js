@@ -66,9 +66,9 @@ Page({
 
   onLoad: function () {
     const _this = this;
-    const date = new Date('2018-07-07 10:18:00').getTime();
+    const date = new Date('2019-05-07 10:18:00').getTime();
     const dar = new Date().getTime()
-    const dateend = new Date('2018-06-05 10:20:00').getTime();
+    const dateend = new Date('2019-06-05 10:20:00').getTime();
     if (dar<date){
       console.log(1)
     } else if (dar > date && dar < dateend){
